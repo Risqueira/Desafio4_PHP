@@ -42,51 +42,54 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-   
-    <h1>Média de Vários Valores</h1>
-    <?php
-    if (count($erros) > 0) {
-        echo "<div class='erro'><ul>";
+    <div class="container">
+        <h2>Média de Vários Valores</h2>
+        <div class="exercicio">
+            <?php
+            if (count($erros) > 0) {
+                echo "<div class='erro'><ul>";
 
-        foreach ($erros as $erro) {
-            echo "<li>$erro</li>";
-        }
+                foreach ($erros as $erro) {
+                    echo "<li>$erro</li>";
+                }
 
-        echo "</ul></div>";
-    }
-    if (isset($media)) {
-        echo "<div class='resultado'>A média das notas é: $media</div>";
-    }
-    ?>
+                echo "</ul></div>";
+            }
+            if (isset($media)) {
+                echo "<div class='resultado'>A média das notas é: $media</div>";
+            }
+            ?>
 
-    <form method="post">
-        <div>
-            <label for="nota1">Nota 1:</label>
-            <input type="text" name="notas[]" id="nota1" value="<?php echo
-                                                                isset($notas[0]) ? $notas[0] : ''; ?>">
+            <form method="post">
+                <div>
+                    <label for="nota1">Nota 1:</label>
+                    <input type="text" name="notas[]" id="nota1" value="<?php echo
+                                                                        isset($notas[0]) ? $notas[0] : ''; ?>">
+                </div>
+                <div>
+                    <label for="nota2">Nota 2:</label>
+                    <input type="text" name="notas[]" id="nota2" value="<?php echo
+                                                                        isset($notas[1]) ? $notas[1] : ''; ?>">
+                </div>
+                <div>
+                    <label for="nota3">Nota 3:</label>
+                    <input type="text" name="notas[]" id="nota2" value="<?php echo
+                                                                        isset($notas[2]) ? $notas[2] : ''; ?>">
+                </div>
+                <div>
+                    <label for="nota4">Nota 4:</label>
+                    <input type="text" name="notas[]" id="nota3" value="<?php echo
+                                                                        isset($notas[3]) ? $notas[3] : ''; ?>">
+                </div>
+                <div>
+                    <label for="nota5">Nota 5:</label>
+                    <input type="text" name="notas[]" id="nota5" value="<?php echo
+                                                                        isset($notas[4]) ? $notas[4] : ''; ?>">
+                </div>
+                <button type="submit">Calcular Média</button>
+            </form>
         </div>
-        <div>
-            <label for="nota2">Nota 2:</label>
-            <input type="text" name="notas[]" id="nota2" value="<?php echo
-                                                                isset($notas[1]) ? $notas[1] : ''; ?>">
-        </div>
-        <div>
-            <label for="nota3">Nota 3:</label>
-            <input type="text" name="notas[]" id="nota2" value="<?php echo
-                                                                isset($notas[2]) ? $notas[2] : ''; ?>">
-        </div>
-        <div>
-            <label for="nota4">Nota 4:</label>
-            <input type="text" name="notas[]" id="nota3" value="<?php echo
-                                                                isset($notas[3]) ? $notas[3] : ''; ?>">
-        </div>
-        <div>
-            <label for="nota5">Nota 5:</label>
-            <input type="text" name="notas[]" id="nota5" value="<?php echo
-                                                                isset($notas[4]) ? $notas[4] : ''; ?>">
-        </div>
-        <button type="submit">Calcular Média</button>
-    </form>
+    </div>
 </body>
 
 </html>

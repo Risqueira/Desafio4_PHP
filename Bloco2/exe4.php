@@ -51,43 +51,49 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
+    <div class="container">
 
-    <h2>Situação do Aluno</h2>
+        <h2>Situação do Aluno</h2>
 
-    <?php
-    if (count($erros) > 0) {
-        echo "<div class='erro'>";
-        foreach ($erros as $erro) {
-            echo "$erro <br>";
-        }
-        echo "</div>";
-    }
+        <div class="exercicio">
 
-    if ($media !== null) {
-        echo "<div class='resultado'>";
-        echo "Média: " . number_format($media, 2, ',', '.') . "<br>";
-        echo "Situação: " . $situacao;
-        echo "</div>";
-    }
-    ?>
+            <?php
+            if (count($erros) > 0) {
+                echo "<div class='erro'>";
+                foreach ($erros as $erro) {
+                    echo "$erro <br>";
+                }
+                echo "</div>";
+            }
 
-    <form method="post">
+            if ($media !== null) {
+                echo "<div class='resultado'>";
+                echo "Média: " . number_format($media, 2, ',', '.') . "<br>";
+                echo "Situação: " . $situacao;
+                echo "</div>";
+            }
+            ?>
 
-        <div>
-            <label>Nota 1:</label>
-            <input type="text" name="n1" value="<?= htmlspecialchars($n1) ?>">
+            <form method="post">
+
+                <div>
+                    <label>Nota 1:</label>
+                    <input type="text" name="n1" value="<?= htmlspecialchars($n1) ?>">
+                </div>
+
+                <div>
+                    <label>Nota 2:</label>
+                    <input type="text" name="n2" value="<?= htmlspecialchars($n2) ?>">
+                </div>
+
+                <div>
+                    <input type="submit" value="Calcular Média">
+                </div>
+
+            </form>
+
         </div>
-
-        <div>
-            <label>Nota 2:</label>
-            <input type="text" name="n2" value="<?= htmlspecialchars($n2) ?>">
-        </div>
-
-        <div>
-            <input type="submit" value="Calcular Média">
-        </div>
-
-    </form>
+    </div>
 
 </body>
 

@@ -57,32 +57,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <h2>Dia da Semana</h2>
 
-    <?php
+    <div class="container">
 
-    if (count($erro) > 0) {
-        echo "<div class='erro'><ul>";
-        foreach ($erro as $erro) {
-            echo "<li>$erro</li>";
-        }
-        echo "</ul></div>";
-    }
-    if (!empty($situacao)) {
-        echo "<div class='resultado'>O dia correspondente é: $situacao</div>";
-    }
-    ?>
-    
-    <form method="post">
-        <div>
-            Dia (1 a 7): <br>
-            <input type="number" name="dia" value="<?= htmlspecialchars($dia) ?>" min="1" max="7">
+        <h2>Dia da Semana</h2>
+
+        <div class="exercicio">
+
+            <?php
+
+            if (count($erro) > 0) {
+                echo "<div class='erro'><ul>";
+                foreach ($erro as $erro) {
+                    echo "<li>$erro</li>";
+                }
+                echo "</ul></div>";
+            }
+            if (!empty($situacao)) {
+                echo "<div class='resultado'>O dia correspondente é: $situacao</div>";
+            }
+            ?>
+
+            <form method="post">
+                <div>
+                    Dia (1 a 7): <br>
+                    <input type="number" name="dia" value="<?= htmlspecialchars($dia) ?>" min="1" max="7">
+                </div>
+                <div>
+                    <button type="submit">Verificar Dia</button>
+                </div>
+            </form>
+
         </div>
-        <div>
-            <button type="submit">Verificar Dia</button>
-        </div>
-    </form>
-
+    </div>
 </body>
 
 </html>

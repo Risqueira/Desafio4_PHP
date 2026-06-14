@@ -43,36 +43,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 
-    <h2>Par ou Ímpar</h2>
+    <div class="container">
 
-    <?php
-    if (count($erros) > 0) {
-        echo "<div class='erro'><ul>";
+        <h2>Par ou Ímpar</h2>
 
-        foreach ($erros as $erro) {
-            echo "<li>$erro</li>";
-        }
+        <div class="exercicio">
 
-        echo "</ul></div>";
-    }
 
-    if (!empty($res)) {
-        echo "<div class='resultado'>$res</div>";
-    }
-    ?>
+            <?php
+            if (count($erros) > 0) {
+                echo "<div class='erro'><ul>";
 
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                foreach ($erros as $erro) {
+                    echo "<li>$erro</li>";
+                }
 
-        <div>
-            <label for="num">Número:</label>
-            <input type="text" id="num" name="num"
-                value="<?php echo $num; ?>">
+                echo "</ul></div>";
+            }
+
+            if (!empty($res)) {
+                echo "<div class='resultado'>$res</div>";
+            }
+            ?>
+
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+
+                <div>
+                    <label for="num">Número:</label>
+                    <input type="text" id="num" name="num"
+                        value="<?php echo $num; ?>">
+                </div>
+
+                <input type="submit" value="Verificar">
+
+            </form>
+
         </div>
-
-        <input type="submit" value="Verificar">
-
-    </form>
-
+    </div>
+    
 </body>
 
 </html>

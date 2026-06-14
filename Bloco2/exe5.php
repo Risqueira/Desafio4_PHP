@@ -47,34 +47,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
+    <div class="container">
 
-    <h2>Verificar Situação Eleitoral</h2>
+        <h2>Verificar Situação Eleitoral</h2>
 
-    <?php
-    if (count($erros) > 0) {
-        echo "<div class='erro'><ul>";
-        foreach ($erros as $erro) {
-            echo "<li>$erro</li>";
-        }
-        echo "</ul></div>";
-    }
+        <div class="exercicio">
 
-    if ($situacao) {
-        echo "<div class='resultado'>Idade: $idade anos - $situacao</div>";
-    }
-    ?>
+            <?php
+            if (count($erros) > 0) {
+                echo "<div class='erro'><ul>";
+                foreach ($erros as $erro) {
+                    echo "<li>$erro</li>";
+                }
+                echo "</ul></div>";
+            }
 
-    <form method="post">
-        <div>
-            Ano de Nascimento:<br>
-            <input type="text" name="anoNascimento" value="<?= htmlspecialchars($anoNascimento) ?>">
+            if ($situacao) {
+                echo "<div class='resultado'>Idade: $idade anos - $situacao</div>";
+            }
+            ?>
+
+            <form method="post">
+                <div>
+                    Ano de Nascimento:<br>
+                    <input type="text" name="anoNascimento" value="<?= htmlspecialchars($anoNascimento) ?>">
+                </div>
+
+                <div>
+                    <button type="submit">Verificar Situação Eleitoral</button>
+                </div>
+            </form>
+
+
         </div>
-
-        <div>
-            <button type="submit">Verificar Situação Eleitoral</button>
-        </div>
-    </form>
-
+    </div>
 </body>
 
 </html>

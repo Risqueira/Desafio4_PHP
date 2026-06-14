@@ -46,33 +46,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<p style='color:red;'>$erro</p>";
         }
     }
-
-
-
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>Conversor de Moedas</title>
     <link rel="stylesheet" href="../styles/style.css">
 </head>
+
 <body>
 
-    <h2>Conversor de Reais para Dolares</h2>
+    <div class="container">
 
-    <form method="post">
-        Valor em Reais (R$):
-        <input type="number" step="0.01" name="valor" required><br><br>
+        <h2>Conversor de Reais para Dolares</h2>
 
-        Cotação do Dólar (USD):
-        <input type="number" step="0.01" name="cotacao" required><br><br>
+        <div class="exercicio">
 
-        <input type="submit" value="Converter">
-    </form>
+            <form method="post">
+                Valor em Reais (R$):
+                <input type="number" step="0.01" name="valor" required><br><br>
 
+                Cotação do Dólar (USD):
+                <input type="number" step="0.01" name="cotacao" required><br><br>
+
+                <input type="submit" value="Converter">
+            </form>
+
+        </div> <!-- fechamento da div exercicio -->
+
+    </div> <!-- fechamento da div container -->
 
 
 </body>

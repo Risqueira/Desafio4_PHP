@@ -2,7 +2,7 @@
 $nu1 = "";
 $erros = [];
 
-if($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!empty($_POST['nu1'])) {
         $valor_nu1 = str_replace(',', '.', trim($_POST['nu1']));
@@ -20,43 +20,47 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $fatorial = 1;
 
         for ($i = 1; $i <= $nu1; $i++) {
-           $fatorial = $fatorial * $i;
+            $fatorial = $fatorial * $i;
         }
     }
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>exer10</title>
     <link rel="stylesheet" href="../styles/style.css">
 </head>
+
 <body>
-      
-    <h1>Fatorial de um Número</h1>
-
-    <?php
-    if (count($erros) > 0) {
-        echo '<div class="erro"><ul>';
-        foreach ($erros as $erro) {
-            echo "<li>$erro</li>";
-        }
-        echo '</ul></div>';
-    }
-    if (isset($fatorial)) {
-        echo "<div class='resultado'>O fatorial de $nu1 é $fatorial</div>";
-    }
-    ?>
-    <form method="post">
-        <div>
-            <label for="nu1">Número Inteiro:</label><br>
-            <input type="number" name="nu1" id="nu1" value="<?php echo htmlspecialchars($nu1); ?>" min="0">
+    <div class="container">
+        <h2>Fatorial de um Número</h2>
+        <div class="exercicio">
+            <?php
+            if (count($erros) > 0) {
+                echo '<div class="erro"><ul>';
+                foreach ($erros as $erro) {
+                    echo "<li>$erro</li>";
+                }
+                echo '</ul></div>';
+            }
+            if (isset($fatorial)) {
+                echo "<div class='resultado'>O fatorial de $nu1 é $fatorial</div>";
+            }
+            ?>
+            <form method="post">
+                <div>
+                    <label for="nu1">Número Inteiro:</label><br>
+                    <input type="number" name="nu1" id="nu1" value="<?php echo htmlspecialchars($nu1); ?>" min="0">
+                </div>
+                <button type="submit">Calcular Fatorial</button>
+            </form>
         </div>
-        <button type="submit">Calcular Fatorial</button>
-    </form>
-
+    </div>
 
 </body>
+
 </html>

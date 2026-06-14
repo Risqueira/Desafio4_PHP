@@ -49,40 +49,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
+    <div class="container">
 
-    <h2>Consumo de Combustível</h2>
+        <h2>Consumo de Combustível</h2>
 
-    <?php
+        <div class="exercicio">
 
-    if (count($erros) > 0) {
-        echo "<div class='erro'>";
-        foreach ($erros as $erro) {
-            echo "<p>$erro</p>";
-        }
-    }
-    if ($consumo !== null) {
-        $consumo_formatado = number_format($consumo, 2, ',', '.');
-        echo "<div class='resultado'>
+            <?php
+
+            if (count($erros) > 0) {
+                echo "<div class='erro'>";
+                foreach ($erros as $erro) {
+                    echo "<p>$erro</p>";
+                }
+            }
+            if ($consumo !== null) {
+                $consumo_formatado = number_format($consumo, 2, ',', '.');
+                echo "<div class='resultado'>
             Consumo médio = $consumo_formatado Km/L
           </div>";
-    }
-    ?>
+            }
+            ?>
 
-    <form method="post">
-        <div>
-            Distância (Km): <br>
-            <input type="text" name="distancia" value="<?= htmlspecialchars($distancia) ?>">
-        </div>
+            <form method="post">
+                <div>
+                    Distância (Km): <br>
+                    <input type="text" name="distancia" value="<?= htmlspecialchars($distancia) ?>">
+                </div>
 
-        <div>
-            Combustível (Litros): <br>
-            <input type="text" name="combustivel" value="<?= htmlspecialchars($combustivel) ?>">
-        </div>
+                <div>
+                    Combustível (Litros): <br>
+                    <input type="text" name="combustivel" value="<?= htmlspecialchars($combustivel) ?>">
+                </div>
 
-        <div>
-            <input type="submit" value="Calcular">
+                <div>
+                    <input type="submit" value="Calcular">
+                </div>
+            </form>
+
         </div>
-    </form>
+    </div>
 
 </body>
 

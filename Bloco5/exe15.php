@@ -46,57 +46,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <h1>Encontrar o Maior Número</h1>
+        <h2>Encontrar o Maior Número</h2>
 
-    <div class="exercicio">
+        <div class="exercicio">
 
-        <p>Digite 5 números:</p>
+            <p>Digite 5 números:</p>
 
-    <?php
+            <?php
+            if (count($erros) > 0) {
+                echo "<div class='erro'><ul>";
+                foreach ($erros as $erro) {
+                    echo "<li>$erro</li>";
+                }
+                echo "</ul></div>";
+            }
 
-    if (count($erros) > 0) {
-        echo "<div class='erro'><ul>";
-        foreach ($erros as $erro) {
-            echo "<li>$erro</li>";
-        }
-        echo "</ul></div>";
-    }
+            if ($maior !== null && count($erros) == 0) {
+                echo "<div class='resultado'>";
+                echo "O maior número digitado foi: <strong>$maior</strong>";
+                echo "</div>";
+            }
+            ?>
 
+            <form method="post" action="">
+                <div><input type="text" name="numeros[]" placeholder="Número 1"></div>
+                <div><input type="text" name="numeros[]" placeholder="Número 2"></div>
+                <div><input type="text" name="numeros[]" placeholder="Número 3"></div>
+                <div><input type="text" name="numeros[]" placeholder="Número 4"></div>
+                <div><input type="text" name="numeros[]" placeholder="Número 5"></div>
+                <input type="submit" value="Encontrar Maior">
+            </form>
 
-    if ($maior !== null && count($erros) == 0) {
-        echo "<div class='resultado'>";
-        echo "O maior número digitado foi: <strong>$maior</strong>";
-        echo "</div>";
-    }
-    ?>
+        </div> <!-- fechamento da div exercicio -->
 
-    <form method="post">
-
-        <div>
-            <input type="text" name="numeros[]" placeholder="Número 1">
-        </div>
-
-        <div>
-            <input type="text" name="numeros[]" placeholder="Número 2">
-        </div>
-
-        <div>
-            <input type="text" name="numeros[]" placeholder="Número 3">
-        </div>
-
-        <div>
-            <input type="text" name="numeros[]" placeholder="Número 4">
-        </div>
-
-        <div>
-            <input type="text" name="numeros[]" placeholder="Número 5">
-        </div>
-
-        <input type="submit" value="Encontrar Maior">
-
-    </form>
+    </div> <!-- fechamento da div container -->
 
 </body>
 

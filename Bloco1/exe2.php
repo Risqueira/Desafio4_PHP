@@ -52,45 +52,51 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
+    <div class="container">
 
-    <h2>Calculadora de Retângulo</h2>
+        <h2>Calculadora de Retângulo</h2>
 
-    <?php
-    if (count($erro) > 0) {
-        echo "<div class = 'erro'>";
-        foreach ($erro as $erro) {
-            echo "<p style='color:red;'>$erro</p>";
-        }
-        echo "</div>";
-    }
+        <div class="exercicio">
 
-    if ($area !== null && $perimetro !== null) {
-        $area_formatada = number_format($area, 2, ',', '.');
-        $perimetro_formatado = number_format($perimetro, 2, ',', '.');
+            <?php
+            if (count($erro) > 0) {
+                echo "<div class = 'erro'>";
+                foreach ($erro as $erro) {
+                    echo "<p style='color:red;'>$erro</p>";
+                }
+                echo "</div>";
+            }
 
-        echo "<div class='resultado'>
+            if ($area !== null && $perimetro !== null) {
+                $area_formatada = number_format($area, 2, ',', '.');
+                $perimetro_formatado = number_format($perimetro, 2, ',', '.');
+
+                echo "<div class='resultado'>
             Área = $area_formatada m² <br>
             Perímetro = $perimetro_formatado m
           </div>";
-    }
-    ?>
+            }
+            ?>
 
-    <form method="post">
-        <div>
-            Base (m): <br>
-            <input type="text" name="base" value="<?= htmlspecialchars($base) ?>">
+            <form method="post">
+                <div>
+                    Base (m): <br>
+                    <input type="text" name="base" value="<?= htmlspecialchars($base) ?>">
+                </div>
+
+                <div>
+                    Altura (m): <br>
+                    <input type="text" name="altura" value="<?= htmlspecialchars($altura) ?>">
+                </div>
+
+                <div>
+                    <input type="submit" value="Calcular">
+                </div>
+            </form>
+
         </div>
 
-        <div>
-            Altura (m): <br>
-            <input type="text" name="altura" value="<?= htmlspecialchars($altura) ?>">
-        </div>
-
-        <div>
-            <input type="submit" value="Calcular">
-        </div>
-    </form>
-
+    </div>
 
 </body>
 

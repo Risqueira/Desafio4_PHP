@@ -67,6 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,54 +76,61 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 </head>
 
 <body>
+    <div class="container">
 
-<h2>Calculadora Simples</h2>
+        <h2>Calculadora Simples</h2>
 
-<?php
-if (count($erros) > 0) {
-    echo "<div class='erro'><ul>";
-    foreach ($erros as $erro) {
-        echo "<li>$erro</li>";
-    }
-    echo "</ul></div>";
-}
+        <div class="exercicio">
 
-if ($res !== null) {
-    echo "<div class='resultado'>$res</div>";
-}
-?>
+            <?php
+            if (count($erros) > 0) {
+                echo "<div class='erro'><ul>";
+                foreach ($erros as $erro) {
+                    echo "<li>$erro</li>";
+                }
+                echo "</ul></div>";
+            }
 
-<form method="post">
+            if ($res !== null) {
+                echo "<div class='resultado'>$res</div>";
+            }
+            ?>
 
-    <div>
-        Número 1:<br>
-        <input type="text" name="n1" value="<?= htmlspecialchars($n1) ?>">
+            <form method="post">
+
+                <div>
+                    Número 1:<br>
+                    <input type="text" name="n1" value="<?= htmlspecialchars($n1) ?>">
+                </div>
+
+                <div>
+                    Número 2:<br>
+                    <input type="text" name="n2" value="<?= htmlspecialchars($n2) ?>">
+                </div>
+
+                <div>
+                    Operação:<br>
+                    <select name="operacao">
+                        <option value="">Selecione</option>
+
+                        <?php foreach ($operacoes as $valor => $texto): ?>
+                            <option value="<?= $valor ?>" <?= (isset($operacao) && $operacao == $valor) ? 'selected' : '' ?>>
+                                <?= $texto ?>
+                            </option>
+                        <?php endforeach; ?>
+
+                    </select>
+                </div>
+
+                <div>
+                    <button type="submit">Calcular</button>
+                </div>
+
+            </form>
+
+        </div>
     </div>
-
-    <div>
-        Número 2:<br>
-        <input type="text" name="n2" value="<?= htmlspecialchars($n2) ?>">
-    </div>
-
-    <div>
-        Operação:<br>
-        <select name="operacao">
-            <option value="">Selecione</option>
-
-            <?php foreach ($operacoes as $valor => $texto): ?>
-                <option value="<?= $valor ?>" <?= (isset($operacao) && $operacao == $valor) ? 'selected' : '' ?>>
-                    <?= $texto ?>
-                </option>
-            <?php endforeach; ?>
-
-        </select>
-    </div>
-
-    <div>
-        <button type="submit">Calcular</button>
-    </div>
-
-</form>
 
 </body>
+
 </html>
