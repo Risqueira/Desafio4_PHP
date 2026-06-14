@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 
-    <h2>Conversor de Reais para Dólares</h2>
+    <h2>Conversor de Reais para Dolares</h2>
 
     <form method="post">
         Valor em Reais (R$):
